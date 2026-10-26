@@ -308,8 +308,8 @@ const perms=()=>user&&prof&&!prof.disabled?(prof.role==="admin"?ALL:(roles[prof.
 const can=k=>perms().includes(k);
 const canAdmin=()=>["manage_users","manage_roles","edit_content","view_submissions"].some(can);
 const uid=()=>user.uid,myName=()=>prof?prof.name:"";
-const AUTHMSG={"auth/invalid-credential":"Wrong email or password.","auth/wrong-password":"Wrong email or password.","auth/user-not-found":"Wrong email or password.","auth/email-already-in-use":"That email already has an account.","auth/weak-password":"Password must be at least 8 characters.","auth/invalid-email":"That email doesn't look right.","auth/too-many-requests":"Too many tries. Wait a bit."};
-
+const AUTHMSG={"auth/invalid-credential":"Wrong email or password.","auth/wrong-password":"Wrong email or password.","auth/user-not-found":"Wrong email or password.","auth/email-already-in-use":"That email already has an account.","auth/weak-password":"Password must be at least 8 characters.","auth/invalid-email":"That email doesn't look right.","auth/too-many-requests":"Too many tries. Please wait and try again. (Or reset your password or something, dont keep guessing ;)"};
+/*start child */
 let tt;const toast=m=>{const t=$("toast");t.textContent=m;t.classList.add("on");clearTimeout(tt);tt=setTimeout(()=>t.classList.remove("on"),3000)};
 async function act(fn,ok){try{await fn();if(ok)toast(ok);return true}catch(e){console.error(e);toast(e.code==="permission-denied"?"You don't have permission for that.":AUTHMSG[e.code]||"Something went wrong. Try again.");return false}}
 const ago=t=>{const m=Math.floor((Date.now()-t)/6e4);if(m<1)return"just now";if(m<60)return m+" min ago";const h=Math.floor(m/60);if(h<24)return h+" hr ago";const d=Math.floor(h/24);return d<7?d+" day"+(d>1?"s":"")+" ago":new Date(t).toLocaleDateString()};
