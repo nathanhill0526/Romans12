@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Romans 12</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--sky:#B5C9D6;--wool:#D1C1B6;--ocean:#7E9EB2;--hazel:#A47864;--denim:#3F5F76;--choc:#794E46;--esp:#35281F;--paper:#F4EEE9;
+--serif:'Cormorant Garamond',Georgia,serif;--sans:'Karla',system-ui,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--esp);font:17px/1.55 var(--sans)}
+a{color:inherit}:focus-visible{outline:3px solid var(--denim);outline-offset:2px}
+header{background:var(--denim);color:var(--paper);padding:34px 20px 0;text-align:center;position:relative}
+header h1{font:700 clamp(2.8rem,9vw,4.8rem)/1 var(--serif);margin:0}
+header p{font:1.25rem var(--serif);color:var(--sky);margin:8px auto 16px;max-width:36ch}
+#who{position:absolute;top:10px;right:14px;font-size:.85rem;color:var(--sky)}#who a{color:var(--paper);font-weight:700}
+nav.tabs{display:flex;gap:4px;overflow-x:auto;justify-content:center;padding:0 10px;scrollbar-width:none}
+nav.tabs button{font:500 1rem var(--sans);white-space:nowrap;padding:11px 15px;border:0;border-radius:8px 8px 0 0;background:transparent;color:var(--sky);cursor:pointer}
+nav.tabs button[aria-selected=true]{background:var(--paper);color:var(--denim);font-weight:700}
+@media(max-width:760px){nav.tabs{justify-content:flex-start}#who{position:static;margin-bottom:6px}}
+.wrap{max-width:900px;margin:0 auto;padding:26px 18px 10px}
+.view{display:none}.view.on{display:block}
+h2{font:700 2.1rem/1.1 var(--serif);color:var(--denim);margin:0 0 6px}
+h3{font:700 1.45rem var(--serif);color:var(--choc);margin:0 0 4px}
+.sub{margin:0 0 16px;color:var(--choc)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.btn{display:block;text-decoration:none;padding:16px 18px;border-radius:6px;font-weight:700;color:var(--paper);box-shadow:0 2px 0 rgba(53,40,31,.25)}
+.btn small{display:block;font-weight:400;opacity:.88;font-size:.85rem}.btn:hover{filter:brightness(1.08)}
+.b1{background:var(--choc)}.b2{background:var(--hazel)}.b3{background:var(--ocean);color:var(--esp)}
+.card{background:var(--wool);padding:18px 20px;border-radius:6px;margin-top:14px}
+.verse{font:1.35rem/1.4 var(--serif);margin:0}.ref{font-weight:700;font-size:.9rem;color:var(--choc);margin:6px 0 0}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.chips button,.sub-tabs button{font:500 .95rem var(--sans);padding:6px 15px;border-radius:99px;border:2px solid var(--ocean);background:transparent;color:var(--denim);cursor:pointer}
+.chips button[aria-pressed=true],.sub-tabs button[aria-pressed=true]{background:var(--denim);border-color:var(--denim);color:var(--paper)}
+.sub-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 16px}
+form.f,.box{background:var(--sky);padding:18px;border-radius:6px;display:grid;gap:10px;margin:0 0 14px}
+label{font-weight:700;font-size:.9rem}
+input,textarea,select{font:inherit;width:100%;padding:10px 12px;border:2px solid transparent;border-radius:5px;background:#fff;color:var(--esp)}
+input[type=checkbox]{width:auto}
+input:focus,textarea:focus,select:focus{border-color:var(--denim);outline:0}
+textarea{min-height:92px;resize:vertical}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(max-width:560px){.row{grid-template-columns:1fr}}
+.primary{font:700 1rem var(--sans);padding:10px 20px;border:0;border-radius:5px;background:var(--choc);color:var(--paper);cursor:pointer;justify-self:start}
+.primary:hover{background:var(--esp)}.danger{background:#8a3a2e}
+.post{background:#fff;border-left:6px solid var(--ocean);border-radius:6px;padding:16px 18px;margin-top:14px;box-shadow:0 1px 0 rgba(53,40,31,.12)}
+.post.prayer{border-left-color:var(--hazel)}.post.done{border-left-color:var(--denim);background:#EEF3F6}
+.meta{font-size:.85rem;color:var(--choc);display:flex;gap:10px;flex-wrap:wrap;align-items:baseline}
+.meta b{font-size:1rem;color:var(--esp)}.tag{background:var(--wool);padding:1px 9px;border-radius:99px;font-size:.78rem}
+.body{margin:8px 0 10px;white-space:pre-wrap;overflow-wrap:anywhere}
+.acts{display:flex;gap:16px;flex-wrap:wrap}
+.acts button{font:700 .9rem var(--sans);background:none;border:0;padding:4px 0;color:var(--denim);cursor:pointer}
+.acts button:hover{text-decoration:underline}.acts button:disabled{opacity:.5;cursor:default;text-decoration:none}
+.acts .on{color:var(--choc)}
+.replies{margin:10px 0 0 12px;padding-left:14px;border-left:3px solid var(--wool)}
+.reply{margin:8px 0}.reply form{display:grid;grid-template-columns:2fr auto;gap:8px;margin-top:10px}
+.empty{padding:26px;text-align:center;color:var(--choc);font:1.3rem var(--serif)}
+.note{background:var(--wool);padding:14px 18px;border-radius:6px}
+details{background:#fff;border-radius:6px;padding:12px 16px;margin-top:10px}
+summary{font-weight:700;cursor:pointer;color:var(--denim)}details p{margin:8px 0 0}
+.week{background:#fff;border-left:6px solid var(--hazel);border-radius:6px;padding:14px 18px;margin-top:12px}
+ol.q{padding-left:20px;margin:8px 0 0}
+.urow{background:#fff;border-radius:6px;padding:12px 14px;margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.urow .nm{flex:1 1 150px;font-weight:700}.urow select{width:auto}.urow .off{opacity:.55}
+.urow button{font:700 .85rem var(--sans);padding:6px 12px;border:0;border-radius:5px;background:var(--denim);color:var(--paper);cursor:pointer}
+.urow button.danger{background:#8a3a2e}
+.perm{display:flex;gap:8px;align-items:flex-start;margin:6px 0;font-size:.95rem}.perm input{margin-top:5px}
+.rolecard{background:#fff;border-radius:6px;padding:16px;margin-top:12px}
+#toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--esp);color:var(--paper);padding:10px 18px;border-radius:6px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:9}
+#toast.on{opacity:1}
+footer{text-align:center;padding:44px 20px 36px;font:1.15rem var(--serif);color:var(--choc)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header>
+  <div id="who"></div>
+  <h1>Romans 12</h1><p id="tagline"></p>
+  <nav class="tabs" role="tablist" id="tabs"></nav>
+</header>
+<main class="wrap">
+  <section class="view" id="v-home">
+    <div class="grid">
+      <a class="btn b1" id="lText" href="#">Get the weekly text<small>Join the text message list</small></a>
+      <a class="btn b2" id="lSpot" href="#" target="_blank" rel="noopener">Listen on Spotify<small>Our playlist</small></a>
+      <a class="btn b3" id="lSub" href="#" target="_blank" rel="noopener">Romans 12 submission<small>Opens the external form</small></a>
+    </div>
+    <div class="grid" style="margin-top:14px">
+      <div class="card" style="margin:0"><h3>Verse of the week</h3><p class="verse" id="hVerse"></p><p class="ref" id="hRef"></p></div>
+      <div class="card" style="margin:0"><h3>Song of the week</h3><p id="hSong" style="font-weight:700;margin:0"></p><p id="hArtist" style="margin:0"></p></div>
+    </div>
+    <div class="card"><h3>Latest on the board</h3><div id="hLatest"></div></div>
+  </section>
+
+  <section class="view" id="v-board">
+    <h2>Discussion board</h2><p class="sub">Talk about the week's verse, share what you're learning, ask questions.</p>
+    <div class="chips" id="boardChips"></div>
+    <div id="postFormBox"></div><div id="posts"></div>
+  </section>
+
+  <section class="view" id="v-prayer">
+    <h2>Prayer wall</h2><p class="sub">Share a request or a praise report. Tap "I prayed" so people know they're not alone.</p>
+    <div class="chips" id="prayChips"></div>
+    <div id="prayFormBox"></div><div id="prayers"></div>
+  </section>
+
+  <section class="view" id="v-weekly"><h2>Weekly verse and song</h2><p class="sub">Each text message lines up with what's here.</p><div id="weeks"></div></section>
+  <section class="view" id="v-study"><h2>Study Romans 12</h2><p class="sub">The chapter in three movements. Read it, then talk it over on the board.</p><div id="study"></div></section>
+
+  <section class="view" id="v-submit">
+    <h2>Submit to Romans 12</h2><p class="sub">Send a testimony, a song or verse idea, or a question. Only the Romans 12 team sees these.</p>
+    <div id="submitBox"></div>
+    <p id="extSub"></p>
+  </section>
+
+  <section class="view" id="v-about"><h2>About and FAQ</h2><p class="sub">Romans 12 is a weekly rhythm of Scripture, music, and community. Here's how to plug in.</p><div id="faq"></div></section>
+
+  <section class="view" id="v-account"><h2>Account</h2><div id="accountBox"></div></section>
+
+  <section class="view" id="v-admin">
+    <h2>Admin panel</h2>
+    <div class="sub-tabs" id="admTabs"></div><div id="admBody"></div>
+  </section>
+</main>
+<div id="toast"></div>
+<footer>Love one another with brotherly affection. Romans 12:10</footer>
+
+<script>
+const STUDY=[
+ {t:"Verses 1 to 2: Offer yourself",s:"Because of God's mercy, give your whole life to him and let him reshape how you think instead of copying the culture around you.",q:["What does a living sacrifice look like on a normal Tuesday?","What is one pattern of the world you want renewed in your mind?"]},
+ {t:"Verses 3 to 8: One body, many gifts",s:"Don't think too highly of yourself. Each person has a different gift, and the body needs all of them used faithfully.",q:["Which gift do you see in the person next to you?","Where are you tempted to compare instead of contribute?"]},
+ {t:"Verses 9 to 21: Love in action",s:"Real love hates evil, honors others, stays hopeful in trouble, welcomes strangers, blesses enemies, and answers evil with good.",q:["Who is hardest for you to bless right now?","What is one small act of hospitality you can do this week?"]}];
+const FAQ=[
+ ["How do I get the weekly text?","Tap \"Get the weekly text\" on the Home tab. It opens your messages with the keyword filled in. Just hit send."],
+ ["Do I need an account?","Anyone can read. To post, reply, or use the prayer wall you need an account. Create one on the Account tab, or ask an admin."],
+ ["Who can see my posts?","Anyone on this network who opens the site. Submissions on the Submit tab are private."],
+ ["Can I post a prayer request anonymously?","Yes. Tick \"Post anonymously\" on the prayer wall. Admins cannot see who wrote it from the page."],
+ ["How do I report a post?","Send a submission and mention the post. A moderator will remove anything that doesn't fit."]];
+
+const $=id=>document.getElementById(id);
+const el=(t,c,x)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
+let me={user:null,perms:[],permList:{},settings:{}}, D={posts:[],prayers:[],content:{weeks:[]}}, bf="All", pf="All", adm="users", pending=false;
+const can=k=>me.perms.includes(k);
+const BOARD=["All","Discussion","Verse of the week","Song of the week","Testimony","Question"], PRAY=["All","Request","Praise report","Answered"];
+
+async function api(m,u,b){
+  const r=await fetch(u,{method:m,credentials:"same-origin",headers:m==="GET"||m==="DELETE"?{}:{"Content-Type":"application/json"},body:m==="GET"||m==="DELETE"?undefined:JSON.stringify(b||{})});
+  let j={};try{j=await r.json()}catch(e){}
+  if(!r.ok){toast(j.error||"Something went wrong");throw new Error(j.error)}
+  return j;
+}
+let tt;function toast(m){const t=$("toast");t.textContent=m;t.classList.add("on");clearTimeout(tt);tt=setTimeout(()=>t.classList.remove("on"),2800)}
+function ago(t){const m=Math.floor((Date.now()-t)/6e4);if(m<1)return"just now";if(m<60)return m+" min ago";const h=Math.floor(m/60);if(h<24)return h+" hr ago";const d=Math.floor(h/24);return d<7?d+" day"+(d>1?"s":"")+" ago":new Date(t).toLocaleDateString()}
+function chips(box,list,get,set){box.textContent="";list.forEach(c=>{const b=el("button","",c);b.type="button";b.setAttribute("aria-pressed",get()===c);b.onclick=()=>{set(c);chips(box,list,get,set);renderLists()};box.appendChild(b)})}
+function field(label,id,type,attrs){const d=el("div");const l=el("label","",label);l.htmlFor=id;const i=type==="textarea"?el("textarea"):el("input");i.id=id;if(type!=="textarea")i.type=type||"text";Object.assign(i,attrs||{});d.append(l,i);return d}
+function mkForm(cls,kids,onsub){const f=el("form",cls);kids.forEach(k=>f.append(k));f.onsubmit=async e=>{e.preventDefault();await onsub(f)};return f}
+function btn(txt,cls,fn,dis){const b=el("button",cls||"",txt);b.type="button";if(dis)b.disabled=true;b.onclick=fn;return b}
+const needLogin=(msg)=>{const n=el("div","note",msg+" ");const a=el("a","","Log in or create an account");a.href="#account";n.appendChild(a);return n};
+
+/* ---------- tabs and routing ---------- */
+const canAdmin=()=>["manage_users","manage_roles","edit_content","view_submissions"].some(can);
+function tabList(){const t=[["home","Home"],["board","Discussion"],["prayer","Prayer"],["weekly","Weekly"],["study","Study"],["submit","Submit"],["about","About"],["account",me.user?"Account":"Log in"]];if(canAdmin())t.push(["admin","Admin"]);return t}
+function route(){const tabs=tabList(),id=tabs.some(t=>t[0]===location.hash.slice(1))?location.hash.slice(1):"home";
+  const box=$("tabs");box.textContent="";
+  tabs.forEach(([k,l])=>{const b=el("button","",l);b.type="button";b.setAttribute("role","tab");b.setAttribute("aria-selected",k===id);b.onclick=()=>{location.hash=k};box.appendChild(b)});
+  document.querySelectorAll(".view").forEach(v=>v.classList.toggle("on",v.id==="v-"+id));
+  if(id==="admin")renderAdmin();if(id==="account")renderAccount();
+}
+addEventListener("hashchange",()=>{route();scrollTo(0,0)});
+
+/* ---------- static views ---------- */
+STUDY.forEach(s=>{const d=el("div","card");d.append(el("h3","",s.t),el("p","",s.s));const o=el("ol","q");s.q.forEach(q=>o.appendChild(el("li","",q)));d.appendChild(o);$("study").appendChild(d)});
+FAQ.forEach(([q,a])=>{const d=el("details");d.append(el("summary","",q),el("p","",a));$("faq").appendChild(d)});
+
+/* ---------- content, lists ---------- */
+function renderContent(){
+  const c=D.content,w=(c.weeks||[])[0]||{};
+  $("tagline").textContent=c.tagline||"";
+  [["lText",c.textLink],["lSpot",c.spotifyLink],["lSub",c.submitLink]].forEach(([i,h])=>{$(i).style.display=h?"":"none";if(h)$(i).href=h});
+  $("hVerse").textContent=w.verse?"\u201C"+w.verse+"\u201D":"";$("hRef").textContent=w.ref||"";$("hSong").textContent=w.song||"";$("hArtist").textContent=w.artist||"";
+  const wk=$("weeks");wk.textContent="";
+  (c.weeks||[]).forEach(w=>{const d=el("div","week");d.append(el("h3","",w.date),el("p","verse","\u201C"+w.verse+"\u201D"),el("p","ref",w.ref));
+    const s=el("p","");s.style.margin="8px 0 0";s.append(el("b","","Song: "),document.createTextNode(w.song+" by "+w.artist));
+    if(w.link){const a=el("a","","  Listen");a.href=w.link;a.target="_blank";a.rel="noopener";s.appendChild(a)}d.appendChild(s);wk.appendChild(d)});
+  const es=$("extSub");es.textContent="";if(c.submitLink){es.append("Prefer the longer form? ");const a=el("a","","Open the external submission form");a.href=c.submitLink;a.target="_blank";a.rel="noopener";es.appendChild(a);es.append(".")}
+}
+function postCard(p){
+  const c=el("article","post"),m=el("div","meta");m.append(el("b","",p.name),el("span","tag",p.cat),el("span","",ago(p.time)));c.append(m,el("p","body",p.text));
+  const a=el("div","acts");
+  a.appendChild(btn((p.liked?"Encouraged":"Encourage")+(p.likes?" ("+p.likes+")":""),p.liked?"on":"",()=>api("POST","/api/posts/"+p.id+"/like"),!can("like")));
+  if(p.mine||can("delete_any"))a.appendChild(btn("Delete","",()=>confirm("Delete this post?")&&api("DELETE","/api/posts/"+p.id)));
+  c.appendChild(a);
+  const r=el("div","replies");
+  p.replies.forEach(x=>{const d=el("div","reply"),rm=el("div","meta");rm.append(el("b","",x.name),el("span","",ago(x.time)));d.append(rm,el("div","body",x.text));
+    if(x.mine||can("delete_any")){const ac=el("div","acts");ac.appendChild(btn("Delete","",()=>api("DELETE","/api/posts/"+p.id+"/replies/"+x.id)));d.appendChild(ac)}r.appendChild(d)});
+  if(can("reply")){const i=el("input");i.placeholder="Write a reply";i.maxLength=800;i.required=true;i.setAttribute("aria-label","Reply");
+    r.appendChild(mkForm("",[i,Object.assign(el("button","primary","Reply"),{type:"submit"})],async()=>{await api("POST","/api/posts/"+p.id+"/reply",{text:i.value});i.value=""}));r.lastChild.className="reply-form";r.lastChild.style.cssText="display:grid;grid-template-columns:2fr auto;gap:8px;margin-top:10px"}
+  c.appendChild(r);return c;
+}
+function prayerCard(p){
+  const c=el("article","post prayer"+(p.answered?" done":"")),m=el("div","meta");
+  m.append(el("b","",p.name),el("span","tag",p.answered?"Answered":p.kind),el("span","",ago(p.time)));c.append(m,el("p","body",p.text));
+  const a=el("div","acts");
+  a.appendChild(btn((p.iPrayed?"You prayed":"I prayed")+(p.prayed?" ("+p.prayed+")":""),p.iPrayed?"on":"",()=>api("POST","/api/prayers/"+p.id+"/pray"),!can("like")));
+  if(p.kind==="Request"&&(p.mine||can("answer_any")))a.appendChild(btn(p.answered?"Reopen":"Mark answered","",()=>api("POST","/api/prayers/"+p.id+"/answer")));
+  if(p.mine||can("delete_any"))a.appendChild(btn("Delete","",()=>confirm("Delete this request?")&&api("DELETE","/api/prayers/"+p.id)));
+  c.appendChild(a);return c;
+}
+function renderLists(){
+  const pb=$("posts");pb.textContent="";const bl=D.posts.filter(p=>bf==="All"||p.cat===bf);
+  if(!bl.length)pb.appendChild(el("div","empty","Nothing here yet. Start the conversation."));bl.forEach(p=>pb.appendChild(postCard(p)));
+  const pr=$("prayers");pr.textContent="";const pl=D.prayers.filter(p=>pf==="All"||(pf==="Answered"?p.answered:(!p.answered&&p.kind===pf)));
+  if(!pl.length)pr.appendChild(el("div","empty","No prayers in this view yet."));pl.forEach(p=>pr.appendChild(prayerCard(p)));
+  const lt=$("hLatest");lt.textContent="";if(!D.posts.length)lt.appendChild(el("p","","No posts yet."));
+  D.posts.slice(0,3).forEach(p=>{const d=el("p");d.append(el("b","",p.name+": "),document.createTextNode(p.text.length>110?p.text.slice(0,110)+"...":p.text));lt.appendChild(d)});
+}
+function renderForms(){
+  const pf_=$("postFormBox");pf_.textContent="";
+  if(can("post")){const sel=el("select");sel.id="pCat";BOARD.slice(1).forEach(c=>sel.appendChild(el("option","",c)));
+    const sd=el("div");const l=el("label","","Topic");l.htmlFor="pCat";sd.append(l,sel);
+    pf_.appendChild(mkForm("f",[sd,field("Your post","pText","textarea",{maxLength:1500,required:true}),Object.assign(el("button","primary","Post to the board"),{type:"submit"})],async f=>{await api("POST","/api/posts",{cat:sel.value,text:f.querySelector("#pText").value});f.querySelector("#pText").value="";toast("Posted")}))}
+  else pf_.appendChild(needLogin("You need an account with posting permission to join the conversation."));
+  const pr=$("prayFormBox");pr.textContent="";
+  if(can("prayer")){const sel=el("select");sel.id="rKind";["Request","Praise report"].forEach(c=>sel.appendChild(el("option","",c)));
+    const sd=el("div");const l=el("label","","Type");l.htmlFor="rKind";sd.append(l,sel);
+    const an=el("input");an.type="checkbox";an.id="rAnon";const al=el("label","","Post anonymously");al.htmlFor="rAnon";al.style.fontWeight="400";const ad=el("div");ad.style.cssText="display:flex;gap:8px;align-items:center";ad.append(an,al);
+    pr.appendChild(mkForm("f",[sd,field("What can we pray for?","rText","textarea",{maxLength:1000,required:true}),ad,Object.assign(el("button","primary","Add to the prayer wall"),{type:"submit"})],async f=>{await api("POST","/api/prayers",{kind:sel.value,text:f.querySelector("#rText").value,anon:an.checked});f.querySelector("#rText").value="";toast("Added")}))}
+  else pr.appendChild(needLogin("You need an account with prayer wall permission to post."));
+  const sb=$("submitBox");sb.textContent="";
+  if(can("submit")){const sel=el("select");sel.id="sKind";["Testimony","Song suggestion","Verse suggestion","Question","Something else"].forEach(c=>sel.appendChild(el("option","",c)));
+    const sd=el("div");const l=el("label","","What are you sending?");l.htmlFor="sKind";sd.append(l,sel);
+    const kids=[];if(!me.user)kids.push(field("Your name","sName","text",{maxLength:40,required:true}));
+    kids.push(sd,field("Phone or email (optional, if you want a reply)","sContact","text",{maxLength:80}),field("Your message","sText","textarea",{maxLength:2000,required:true}),Object.assign(el("button","primary","Send submission"),{type:"submit"}));
+    sb.appendChild(mkForm("f",kids,async f=>{const g=i=>f.querySelector("#"+i);await api("POST","/api/submissions",{name:g("sName")?g("sName").value:"",kind:sel.value,contact:g("sContact").value,text:g("sText").value});g("sText").value="";toast("Sent. Thank you!")}))}
+  else sb.appendChild(needLogin("Submissions are turned off for your account."));
+}
+
+/* ---------- account ---------- */
+function renderAccount(){
+  const b=$("accountBox");b.textContent="";
+  if(me.user){
+    const c=el("div","card");c.style.marginTop="0";c.append(el("h3","","Signed in as "+me.user.username),el("p","","Role: "+me.user.role));c.appendChild(btn("Log out","primary",async()=>{await api("POST","/api/logout");await boot()}));b.appendChild(c);
+    b.appendChild(el("h3","","Change password"));
+    b.appendChild(mkForm("f",[field("Current password","pwOld","password",{required:true}),field("New password (8+ characters)","pwNew","password",{required:true,minLength:8}),Object.assign(el("button","primary","Change password"),{type:"submit"})],
+      async f=>{await api("POST","/api/password",{old:f.querySelector("#pwOld").value,new:f.querySelector("#pwNew").value});f.reset();toast("Password changed")}));
+  }else{
+    b.appendChild(el("h3","","Log in"));
+    b.appendChild(mkForm("f",[field("Username","lUser","text",{required:true,autocomplete:"username"}),field("Password","lPass","password",{required:true,autocomplete:"current-password"}),Object.assign(el("button","primary","Log in"),{type:"submit"})],
+      async f=>{await api("POST","/api/login",{username:f.querySelector("#lUser").value,password:f.querySelector("#lPass").value});await boot();location.hash="home"}));
+    if(me.settings.allowSignup){b.appendChild(el("h3","","Create an account"));
+      b.appendChild(mkForm("f",[field("Choose a username","nUser","text",{required:true,maxLength:24}),field("Password (8+ characters)","nPass","password",{required:true,minLength:8,autocomplete:"new-password"}),Object.assign(el("button","primary","Sign up"),{type:"submit"})],
+        async f=>{await api("POST","/api/signup",{username:f.querySelector("#nUser").value,password:f.querySelector("#nPass").value});await boot();location.hash="home"}))}
+    else b.appendChild(el("p","note","Sign-up is closed. Ask an admin to create an account for you."));
+  }
+}
+
+/* ---------- admin ---------- */
+const ADM=[["users","Users","manage_users"],["roles","Roles and permissions","manage_roles"],["content","Weekly content","edit_content"],["inbox","Submissions inbox","view_submissions"]];
+function renderAdmin(){
+  const avail=ADM.filter(a=>can(a[2]));if(!avail.length)return;if(!avail.some(a=>a[0]===adm))adm=avail[0][0];
+  const t=$("admTabs");t.textContent="";avail.forEach(([k,l])=>{const b=btn(l,"",()=>{adm=k;renderAdmin()});b.setAttribute("aria-pressed",k===adm);t.appendChild(b)});
+  const body=$("admBody");body.textContent="";({users:admUsers,roles:admRoles,content:admContent,inbox:admInbox})[adm](body);
+}
+async function admUsers(box){
+  const [{users},{roles}]=await Promise.all([api("GET","/api/admin/users"),api("GET","/api/admin/roles")]);
+  const rid=Object.keys(roles).filter(r=>r!=="guest"&&(r!=="admin"||me.user.role==="admin"));
+  const opt=(s,cur)=>{rid.forEach(r=>{const o=el("option","",roles[r].label);o.value=r;if(r===cur)o.selected=true;s.appendChild(o)})};
+  const rs=el("select");rs.id="cuRole";opt(rs,"member");const rd=el("div");const rl=el("label","","Role");rl.htmlFor="cuRole";rd.append(rl,rs);
+  box.appendChild(el("h3","","Create an account"));
+  box.appendChild(mkForm("f",[field("Username","cuName","text",{required:true,maxLength:24}),field("Temporary password (8+ characters)","cuPass","text",{required:true,minLength:8}),rd,Object.assign(el("button","primary","Create user"),{type:"submit"})],
+    async f=>{await api("POST","/api/admin/users",{username:f.querySelector("#cuName").value,password:f.querySelector("#cuPass").value,role:rs.value});toast("User created");renderAdmin()}));
+  box.appendChild(el("h3","","All users ("+users.length+")"));
+  users.forEach(u=>{
+    const r=el("div","urow");const n=el("span","nm"+(u.disabled?" off":""),u.username+(u.disabled?" (disabled)":""));
+    const s=el("select");opt(s,u.role);if(!rid.includes(u.role)){const o=el("option","",u.role);o.value=u.role;o.selected=true;s.appendChild(o);s.disabled=true}
+    s.setAttribute("aria-label","Role for "+u.username);s.onchange=()=>api("PATCH","/api/admin/users/"+u.id,{role:s.value}).then(()=>{toast("Role updated");renderAdmin()},renderAdmin);
+    r.append(n,s);
+    if(u.id!==me.user.id){
+      r.appendChild(btn(u.disabled?"Enable":"Disable","",()=>api("PATCH","/api/admin/users/"+u.id,{disabled:!u.disabled}).then(renderAdmin)));
+      r.appendChild(btn("Reset password","",()=>{const p=prompt("New password for "+u.username+" (8+ characters):");if(p)api("PATCH","/api/admin/users/"+u.id,{password:p}).then(()=>toast("Password reset"))}));
+      r.appendChild(btn("Delete","danger",()=>{if(confirm("Delete "+u.username+"? Their posts stay.")){api("DELETE","/api/admin/users/"+u.id).then(renderAdmin)}}));
+    }else r.appendChild(el("span","tag","you"));
+    box.appendChild(r);
+  });
+}
+async function admRoles(box){
+  const {roles,settings}=await api("GET","/api/admin/roles");
+  box.appendChild(el("p","sub","Admins always have every permission. Guest is what people who are not logged in can do."));
+  Object.entries(roles).forEach(([id,r])=>{
+    const c=el("div","rolecard");const lab=el("input");lab.value=r.label;lab.maxLength=40;lab.setAttribute("aria-label","Role name");lab.disabled=!!r.locked;
+    c.append(el("h3","",id),lab);const boxes={};
+    Object.entries(me.permList).forEach(([k,txt])=>{const p=el("label","perm");p.style.fontWeight="400";const cb=el("input");cb.type="checkbox";cb.checked=r.locked||r.perms.includes(k);cb.disabled=!!r.locked||(me.user.role!=="admin"&&(!can(k)||id===me.user.role));boxes[k]=cb;p.append(cb,document.createTextNode(txt));c.appendChild(p)});
+    if(!r.locked){const a=el("div","acts");a.style.marginTop="10px";
+      a.appendChild(Object.assign(btn("Save "+id,"primary",()=>api("PUT","/api/admin/roles/"+id,{label:lab.value,perms:Object.keys(boxes).filter(k=>boxes[k].checked)}).then(()=>toast("Saved")))));
+      if(id!=="guest")a.appendChild(btn("Delete role","primary danger",()=>confirm("Delete role "+id+"?")&&api("DELETE","/api/admin/roles/"+id).then(renderAdmin)));c.appendChild(a)}
+    box.appendChild(c);
+  });
+  box.appendChild(el("h3","","New role")).style.marginTop="18px";
+  box.appendChild(mkForm("f",[field("Role id (lowercase letters, numbers, - _)","nrId","text",{required:true,pattern:"[a-z0-9_-]{2,20}"}),field("Display name","nrLabel","text",{required:true,maxLength:40}),Object.assign(el("button","primary","Create role"),{type:"submit"})],
+    async f=>{await api("PUT","/api/admin/roles/"+f.querySelector("#nrId").value,{label:f.querySelector("#nrLabel").value,perms:[]});toast("Role created. Tick its permissions and save.");renderAdmin()}));
+  box.appendChild(el("h3","","Sign-up settings"));
+  const ss=el("select");ss.id="suRole";Object.keys(roles).filter(r=>!["admin","guest"].includes(r)).forEach(r=>{const o=el("option","",roles[r].label);o.value=r;if(r===settings.signupRole)o.selected=true;ss.appendChild(o)});
+  const cb=el("input");cb.type="checkbox";cb.id="suOpen";cb.checked=settings.allowSignup;const cl=el("label","","Let anyone create their own account");cl.htmlFor="suOpen";cl.style.fontWeight="400";const cd=el("div");cd.style.cssText="display:flex;gap:8px;align-items:center";cd.append(cb,cl);
+  const sd=el("div");const sl=el("label","","Role given to new sign-ups");sl.htmlFor="suRole";sd.append(sl,ss);
+  box.appendChild(mkForm("f",[cd,sd,Object.assign(el("button","primary","Save settings"),{type:"submit"})],async()=>{await api("PUT","/api/admin/settings",{allowSignup:cb.checked,signupRole:ss.value});toast("Settings saved")}));
+}
+function admContent(box){
+  const c=JSON.parse(JSON.stringify(D.content));
+  box.appendChild(el("p","sub","The first week in the list shows on the Home tab."));
+  const f=mkForm("f",[field("Tagline","cTag","text",{value:c.tagline,maxLength:160}),field("Text message link (sms:+1555...?&body=Romans12)","cText","text",{value:c.textLink}),field("Spotify link","cSpot","text",{value:c.spotifyLink}),field("External submission link","cSub","text",{value:c.submitLink}),Object.assign(el("button","primary","Save links"),{type:"submit"})],
+    async f=>{const g=i=>f.querySelector("#"+i).value;await api("PUT","/api/content",{...c,tagline:g("cTag"),textLink:g("cText"),spotifyLink:g("cSpot"),submitLink:g("cSub")});toast("Saved")});
+  box.appendChild(f);
+  const save=w=>api("PUT","/api/content",{...c,weeks:w});
+  box.appendChild(el("h3","","Add a week"));
+  box.appendChild(mkForm("f",[field("Label (e.g. Oct 26)","wDate","text",{required:true,maxLength:40}),field("Verse text","wVerse","textarea",{required:true,maxLength:500}),field("Reference","wRef","text",{required:true,maxLength:60}),
+    field("Song title","wSong","text",{required:true,maxLength:100}),field("Artist","wArtist","text",{required:true,maxLength:100}),field("Song link (optional)","wLink","text"),Object.assign(el("button","primary","Add to the top"),{type:"submit"})],
+    async f=>{const g=i=>f.querySelector("#"+i).value;await save([{date:g("wDate"),verse:g("wVerse"),ref:g("wRef"),song:g("wSong"),artist:g("wArtist"),link:g("wLink")},...c.weeks]);toast("Week added");f.reset();setTimeout(renderAdmin,300)}));
+  box.appendChild(el("h3","","Existing weeks"));
+  c.weeks.forEach((w,i)=>{const r=el("div","urow");r.append(el("span","nm",w.date+": "+w.ref+" / "+w.song));
+    r.appendChild(btn("Remove","danger",()=>confirm("Remove this week?")&&save(c.weeks.filter((_,j)=>j!==i)).then(()=>setTimeout(renderAdmin,300))));box.appendChild(r)});
+}
+async function admInbox(box){
+  const {submissions}=await api("GET","/api/submissions");
+  if(!submissions.length)return box.appendChild(el("div","empty","No submissions yet."));
+  submissions.forEach(s=>{const c=el("article","post"),m=el("div","meta");m.append(el("b","",s.name),el("span","tag",s.kind||"Message"),el("span","",ago(s.time)));
+    if(s.contact)m.appendChild(el("span","","Reply to: "+s.contact));c.append(m,el("p","body",s.text));
+    const a=el("div","acts");a.appendChild(btn("Delete","",()=>api("DELETE","/api/submissions/"+s.id).then(renderAdmin)));c.appendChild(a);box.appendChild(c)});
+}
+
+/* ---------- boot and live updates ---------- */
+function paint(){
+  const w=$("who");w.textContent="";
+  if(me.user){w.append("Signed in as ",Object.assign(el("b","",me.user.username)))}else{const a=el("a","","Log in");a.href="#account";w.appendChild(a)}
+  renderContent();renderForms();renderLists();route();
+}
+async function boot(){me=await api("GET","/api/me");D=await api("GET","/api/data");paint()}
+async function refresh(){
+  const a=document.activeElement;
+  if(a&&(a.tagName==="INPUT"||a.tagName==="TEXTAREA")&&a.value&&a.closest("#posts,#prayers,#postFormBox,#prayFormBox,#submitBox")){pending=true;return}
+  pending=false;try{D=await api("GET","/api/data");renderContent();renderLists()}catch(e){}
+}
+addEventListener("focusout",()=>{if(pending)setTimeout(refresh,100)});
+chips($("boardChips"),BOARD,()=>bf,v=>bf=v);chips($("prayChips"),PRAY,()=>pf,v=>pf=v);
+boot();
+const es=new EventSource("/api/events");es.onmessage=refresh;
+</script>
+</body>
+</html>
