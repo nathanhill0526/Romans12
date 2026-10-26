@@ -579,7 +579,7 @@ window.admStats=function(box){
   const who={};posts.forEach(p=>{who[p.name]=(who[p.name]||0)+1;(p.replies||[]).forEach(r=>who[r.name]=(who[r.name]||0)+1)});
   const top=Object.entries(who).sort((a,b)=>b[1]-a[1]).slice(0,5),tm=Math.max(1,...top.map(x=>x[1]));box.appendChild(mk("h3","","Top contributors"));
   top.forEach(([n,c])=>{const r=mk("div","hb"),tr=mk("div","htrack"),f=mk("div","hfill");f.dataset.w=Math.round(c/tm*100);tr.appendChild(f);r.append(mk("span","hn",n),tr,mk("small","",String(c)));box.appendChild(r)});
-  requestAnimationFrame(()=>requestAnimationFrame(()=>{box.querySelectorAll(".bar").forEach(b=>b.style.height=b.dataset.h+"%");box.querySelectorAll(".hfill").forEach(f=>f.style.width=f.dataset.w+"%")}))};
+  requestAnimaitonFrame(()=>requestAnimationFrame(()=>{box.querySelectorAll(".bar").forEach(b=>b.style.height=b.dataset.h+"%");box.querySelectorAll(".hfill").forEach(f=>f.style.width=f.dataset.w+"%")}))};
 
 /* completely useless and purposeless, but fun so i kept it */
 document.addEventListener("pointerdown",e=>{const b=e.target.closest&&e.target.closest("button,.btn");if(!b||b.disabled||RM)return;
