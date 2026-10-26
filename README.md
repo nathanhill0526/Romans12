@@ -31,8 +31,6 @@ Quick start
 Download romans12-poc.html.
 Double-click it to open in any modern browser.
 
-That's it. No install, no build step, no server.
-
 Demo logins
 Role	Email	Password
 Admin	admin@demo.test	admin123
@@ -45,7 +43,7 @@ Roles and permissions
 
 Admins always have every permission. Other roles are controlled from Admin → Roles and permissions.
 
-Permission	What it allows
+Permission:	What it allows
 post	Create posts on the discussion board
 reply	Reply to posts
 like	Use the Encourage and "I prayed" buttons
@@ -118,7 +116,3 @@ The data layer is written to mirror Firebase's function names (doc, setDoc, onSn
 Browser support
 
 Any current version of Chrome, Edge, Firefox, or Safari.
-
-License
-
-Add a license of your choice here (for example MIT) before making the repository public.
